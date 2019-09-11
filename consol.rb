@@ -9,18 +9,46 @@ artist1 = Artist.new({
   'name' => 'The Beatles'
   })
 
-artist1.save()
+  artist2 = Artist.new({
+    'name' => 'ACDC'
+    })
 
-album1 = Album.new({
-  'artist_id' => artist1.id,
-  'title' => 'Let it be',
-  'genre' => 'pop-rock'
-  })
+    artist1.save()
+    artist2.save()
 
-album1.save()
+    album1 = Album.new({
+      'artist_id' => artist1.id,
+      'title' => 'Let It Be',
+      'genre' => 'pop-rock'
+      })
 
-albums = Album.all()
-artists = Artist.all()
+      album2 = Album.new({
+        'artist_id' => artist1.id,
+        'title' => 'Yellow Submarine',
+        'genre' => 'pop-rock'
+        })
 
-binding.pry
-nil
+        album3 = Album.new({
+          'artist_id' => artist2.id,
+          'title' => 'Highway to Hell',
+          'genre' => 'rock'
+          })
+
+          album1.save()
+          album2.save()
+          album3.save()
+
+          album3.delete()
+
+          # album3.title = 'Highway to Heaven'
+          # album3.update()
+
+          # albums = Album.all()
+          # artists = Artist.all()
+
+          result_artist = Artist.find_artist(artist1.id)
+
+          result_album = Album.find_album(album1.id)
+
+          binding.pry
+          nil
